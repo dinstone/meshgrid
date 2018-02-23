@@ -1,0 +1,31 @@
+{
+	"admin": {
+		"port": 7777
+	},
+	"routers": [
+		{
+            "protocol": "http",
+            "type": "proxy",
+            "label": "http proxy",
+            "host": "0.0.0.0",
+            "port": 7484
+        },
+        {
+            "protocol": "http",
+            "type": "api",
+            "label": "http api",
+            "host": "0.0.0.0",
+            "port": 7070
+        }
+	],
+	"vertx.blockedThreadCheckInterval": 200000000,
+	"vertx.cluster": {
+		"type": "zookeeper.non",
+		"zookeeperHosts": "localhost",
+		"rootPath": "vertx/mesh",
+		"retry": {
+			"initialSleepTime": 1000,
+			"maxTimes": 3
+		}
+	}
+}
